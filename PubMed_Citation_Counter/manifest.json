@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "PubMed Citation Counter",
+  "version": "1.0",
+  "description": "Displays the number of times each article is cited directly on PubMed search results.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pubmed-citation-counter@yourdomain.com",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "permissions": [],
+  "host_permissions": [
+    "https://*.ncbi.nlm.nih.gov/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pubmed.ncbi.nlm.nih.gov/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
